@@ -1,19 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_blue"
     tools:context="com.jakepolatty.highschoolsciencebowlpractice.HomePage">
 
     <TextView
+        android:layout_width="286dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="39.0sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/appNameLabel"/>
+
+    <Button
+        android:id="@+id/quizModeOptionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/homepagebutton"
+        android:width="150dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Quiz Mode"
+        android:layout_below="@id/appNameLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/readerModeOptionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quizModeOptionButton"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/homepagebutton"
+        android:text="Reader Mode"
+        android:width="150dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:layout_alignLeft="@+id/quizModeOptionButton"
+        android:layout_alignStart="@+id/quizModeOptionButton"/>
+
+    <Button
+        android:id="@+id/studyModeOptionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/homepagebutton"
+        android:width="150dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:text="Study Mode"
+        android:layout_below="@+id/readerModeOptionButton"
+        android:layout_alignLeft="@+id/readerModeOptionButton"
+        android:layout_alignStart="@+id/readerModeOptionButton"/>
+
+</RelativeLayout>

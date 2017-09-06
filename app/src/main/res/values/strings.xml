@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">High School Science Bowl Practice</string>
+
+    <color name="background_blue">#0093ff</color>
+    <color name="white">#ffffff</color>
+    <color name="button_trans_grey">#0055b4</color>
+    <color name="button_trans_grey_pressed">#1a6bc9</color>
 </resources>
