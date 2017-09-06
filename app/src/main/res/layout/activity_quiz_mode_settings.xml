@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context="com.jakepolatty.highschoolsciencebowlpractice.QuizModeSettingsActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="Quiz Mode"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/chooseTopicLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose a Topic:"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white100"
+        android:textSize="18sp"/>
+
+    <RadioGroup
+        android:id="@+id/leftTopicOptionGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/chooseTopicLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp">
+
+        <ToggleButton
+            android:id="@+id/biologyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepagebutton"
+            android:textOn="Biology"
+            android:textOff="Biology"
+            android:textAllCaps="false"
+            android:width="130dp"
+            android:textColor="@android:color/white"/>
+
+        <ToggleButton
+            android:id="@+id/earthAndSpaceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepagebutton"
+            android:textOn="Earth and Space"
+            android:textOff="Earth and Space"
+            android:textAllCaps="false"
+            android:width="130dp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"/>
+
+        <ToggleButton
+            android:id="@+id/mathButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepagebutton"
+            android:textOn="Mathematics"
+            android:textOff="Mathematics"
+            android:textAllCaps="false"
+            android:width="130dp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"/>
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rightTopicOptionGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/leftTopicOptionGroup"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp">
+
+        <ToggleButton
+            android:id="@+id/chemistryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepagebutton"
+            android:textOn="Chemistry"
+            android:textOff="Chemistry"
+            android:textAllCaps="false"
+            android:width="130dp"
+            android:textColor="@android:color/white"/>
+
+        <ToggleButton
+            android:id="@+id/energyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepagebutton"
+            android:textOn="Energy"
+            android:textOff="Energy"
+            android:textAllCaps="false"
+            android:width="130dp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"/>
+
+        <ToggleButton
+            android:id="@+id/physicsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/homepagebutton"
+            android:textOn="Physics"
+            android:textOff="Physics"
+            android:textAllCaps="false"
+            android:width="130dp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"/>
+
+    </RadioGroup>
+
+</RelativeLayout>

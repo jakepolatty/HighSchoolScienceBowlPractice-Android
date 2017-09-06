@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="backgroundColor">#0093ff</color>
+    <color name="appBarColor">#4aa8fe</color>
+    <color name="statusBarColor">#4aa8fe</color>
+    <color name="buttonTransGrey">#0a58b1</color>
+    <color name="buttonTransGreyPressed">#1a6bc9</color>
+    <color name="white100">#ffffff</color>
 </resources>
