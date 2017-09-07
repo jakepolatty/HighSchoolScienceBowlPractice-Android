@@ -7,5 +7,7 @@
         <item name="colorPrimaryDark">@color/statusBarColor</item>
         <item name="colorAccent">#ffffff</item>
     </style>
-
+    <style name="spinnerStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@color/white100</item>
+    </style>
 </resources>

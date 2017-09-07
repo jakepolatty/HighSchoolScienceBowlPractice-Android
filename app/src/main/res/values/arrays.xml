@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="quiz_tossup_time_options">
+        <item>5 Seconds</item>
+        <item>10 Seconds</item>
+        <item>15 Seconds</item>
+        <item>20 Seconds</item>
+        <item>25 Seconds</item>
+        <item>30 Seconds</item>
+    </string-array>
+    <string-array name="quiz_bonus_time_options">
+        <item>10 Seconds</item>
+        <item>15 Seconds</item>
+        <item>20 Seconds</item>
+        <item>25 Seconds</item>
+        <item>30 Seconds</item>
+        <item>35 Seconds</item>
+        <item>40 Seconds</item>
+    </string-array>
+</resources>
