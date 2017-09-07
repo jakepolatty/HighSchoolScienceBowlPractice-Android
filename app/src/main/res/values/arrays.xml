@@ -9,6 +9,7 @@
         <item>30 Seconds</item>
     </string-array>
     <string-array name="quiz_bonus_time_options">
+        <item>5 Seconds</item>
         <item>10 Seconds</item>
         <item>15 Seconds</item>
         <item>20 Seconds</item>

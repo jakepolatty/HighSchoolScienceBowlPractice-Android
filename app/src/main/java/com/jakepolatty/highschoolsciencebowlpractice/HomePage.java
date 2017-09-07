@@ -22,7 +22,7 @@ public class HomePage extends AppCompatActivity {
     }
 
     public void openQuizModeSettings(View view) {
-        Intent intent = new Intent(HomePage.this, QuizModeSettingsActivity.class);
+        Intent intent = new Intent(HomePage.this, QuizModeSettingsPage.class);
         startActivity(intent);
     }
 }

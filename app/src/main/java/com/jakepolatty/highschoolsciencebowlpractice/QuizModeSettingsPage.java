@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
-public class QuizModeSettingsActivity extends AppCompatActivity {
-    private String selectedOption = "Random";
+public class QuizModeSettingsPage extends AppCompatActivity {
+    private String selectedCategory = "Random";
 
     // Topic option toggle buttons
     private ToggleButton biologyButton;
@@ -43,7 +43,43 @@ public class QuizModeSettingsActivity extends AppCompatActivity {
     }
 
     public void startQuizMode(View view) {
-        System.out.println(selectedOption);
+        Intent intent = new Intent(QuizModeSettingsPage.this, QuizModePage.class);
+        intent.putExtra("CATEGORY", selectedCategory);
+
+        int tossupTime = getTossupTimeSelected();
+        intent.putExtra("TOSSUP_TIME", tossupTime);
+        int bonusTime = getBonusTimeSelected();
+        intent.putExtra("BONUS_TIME", bonusTime);
+
+        startActivity(intent);
+    }
+
+    private int getTossupTimeSelected() {
+        String timeString = tossupTimeSpinner.getSelectedItem().toString();
+        switch (timeString) {
+            case "5 Seconds": return 5;
+            case "10 Seconds": return 10;
+            case "15 Seconds": return 15;
+            case "20 Seconds": return 20;
+            case "25 Seconds": return 25;
+            case "30 Seconds": return 30;
+            default: return 10;
+        }
+    }
+
+    private int getBonusTimeSelected() {
+        String timeString = bonusTimeSpinner.getSelectedItem().toString();
+        switch (timeString) {
+            case "5 Seconds": return 5;
+            case "10 Seconds": return 10;
+            case "15 Seconds": return 15;
+            case "20 Seconds": return 20;
+            case "25 Seconds": return 25;
+            case "30 Seconds": return 30;
+            case "35 Seconds": return 35;
+            case "40 Seconds": return 40;
+            default: return 10;
+        }
     }
 
     private void toggleOff() {
@@ -65,49 +101,49 @@ public class QuizModeSettingsActivity extends AppCompatActivity {
 
     public void selectBiology(View view) {
         toggleOff();
-        selectedOption = "Biology";
+        selectedCategory = "Biology";
         biologyButton.setChecked(true);
         biologyButton.setSelected(true);
     }
 
     public void selectChemistry(View view) {
         toggleOff();
-        selectedOption = "Chemistry";
+        selectedCategory = "Chemistry";
         chemistryButton.setChecked(true);
         chemistryButton.setSelected(true);
     }
 
     public void selectEarthAndSpace(View view) {
         toggleOff();
-        selectedOption = "Earth and Space";
+        selectedCategory = "Earth and Space";
         earthAndSpaceButton.setChecked(true);
         earthAndSpaceButton.setSelected(true);
     }
 
     public void selectEnergy(View view) {
         toggleOff();
-        selectedOption = "Energy";
+        selectedCategory = "Energy";
         energyButton.setChecked(true);
         energyButton.setSelected(true);
     }
 
     public void selectMath(View view) {
         toggleOff();
-        selectedOption = "Math";
+        selectedCategory = "Math";
         mathButton.setChecked(true);
         mathButton.setSelected(true);
     }
 
     public void selectPhysics(View view) {
         toggleOff();
-        selectedOption = "Physics";
+        selectedCategory = "Physics";
         physicsButton.setChecked(true);
         physicsButton.setSelected(true);
     }
 
     public void selectRandom(View view) {
         toggleOff();
-        selectedOption = "Random";
+        selectedCategory = "Random";
         randomButton.setChecked(true);
         randomButton.setSelected(true);
     }

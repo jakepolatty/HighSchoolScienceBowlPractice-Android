@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context="com.jakepolatty.highschoolsciencebowlpractice.QuizModeSettingsActivity">
+    tools:context="com.jakepolatty.highschoolsciencebowlpractice.QuizModeSettingsPage">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
