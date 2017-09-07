@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">High School Science Bowl Practice</string>
+    <string name="quiz_mode">Quiz Mode</string>
+    <string name="reader_mode">Reader Mode</string>
+    <string name="study_mode">Study Mode</string>
+    <string name="choose_a_topic">Choose a Topic:</string>
+    <string name="biology">Biology</string>
+    <string name="earth_and_space">Earth and Space</string>
+    <string name="mathematics">Mathematics</string>
+    <string name="chemistry">Chemistry</string>
+    <string name="energy">Energy</string>
+    <string name="physics">Physics</string>
+    <string name="or_generate_random_questions">Or Generate Random Questions:</string>
+    <string name="random">Random</string>
+    <string name="select_question_time_limits">Select Question Time Limits:</string>
+    <string name="tossup">Tossup:</string>
+    <string name="bonus">Bonus:</string>
+    <string name="start_set">Start Set</string>
 </resources>
