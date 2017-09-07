@@ -72,6 +72,7 @@
                         android:background="@drawable/homepagebutton"
                         android:textOn="Biology"
                         android:textOff="Biology"
+                        android:onClick="selectBiology"
                         android:textAllCaps="false"
                         android:width="130dp"
                         android:textColor="@android:color/white"/>
@@ -83,6 +84,7 @@
                         android:background="@drawable/homepagebutton"
                         android:textOn="Earth and Space"
                         android:textOff="Earth and Space"
+                        android:onClick="selectEarthAndSpace"
                         android:textAllCaps="false"
                         android:width="130dp"
                         android:textColor="@android:color/white"
@@ -95,6 +97,7 @@
                         android:background="@drawable/homepagebutton"
                         android:textOn="Mathematics"
                         android:textOff="Mathematics"
+                        android:onClick="selectMath"
                         android:textAllCaps="false"
                         android:width="130dp"
                         android:textColor="@android:color/white"
@@ -115,6 +118,7 @@
                         android:background="@drawable/homepagebutton"
                         android:textOn="Chemistry"
                         android:textOff="Chemistry"
+                        android:onClick="selectChemistry"
                         android:textAllCaps="false"
                         android:width="130dp"
                         android:textColor="@android:color/white"/>
@@ -126,6 +130,7 @@
                         android:background="@drawable/homepagebutton"
                         android:textOn="Energy"
                         android:textOff="Energy"
+                        android:onClick="selectEnergy"
                         android:textAllCaps="false"
                         android:width="130dp"
                         android:textColor="@android:color/white"
@@ -138,6 +143,7 @@
                         android:background="@drawable/homepagebutton"
                         android:textOn="Physics"
                         android:textOff="Physics"
+                        android:onClick="selectPhysics"
                         android:textAllCaps="false"
                         android:width="130dp"
                         android:textColor="@android:color/white"
@@ -162,8 +168,10 @@
                 android:layout_marginTop="7dp"
                 android:textOn="Random"
                 android:textOff="Random"
+                android:onClick="selectRandom"
                 android:textAllCaps="false"
                 android:width="130dp"
+                android:checked="true"
                 android:textColor="@android:color/white"/>
 
             <TextView
@@ -192,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dropdown"
-                    android:popupBackground="@color/buttonTransGrey"
+                    android:popupBackground="@color/buttonTransGreyPressed"
                     android:dropDownWidth="140dp"
                     android:entries="@array/quiz_tossup_time_options">
                 </Spinner>
@@ -217,7 +225,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dropdown"
-                    android:popupBackground="@color/buttonTransGrey"
+                    android:popupBackground="@color/buttonTransGreyPressed"
                     android:dropDownWidth="140dp"
                     android:entries="@array/quiz_bonus_time_options">
                 </Spinner>
@@ -229,6 +237,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/startsetbutton"
                 android:text="Start Set"
+                android:onClick="startQuizMode"
                 android:textAllCaps="false"
                 android:textColor="@color/white100"
                 android:width="120dp"

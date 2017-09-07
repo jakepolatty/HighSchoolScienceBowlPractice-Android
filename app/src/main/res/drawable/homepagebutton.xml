@@ -10,15 +10,8 @@
     <item android:state_checked="true">
         <shape android:shape="rectangle"  >
             <corners android:radius="10dip" />
-            <stroke android:width="1dip" android:color="@color/buttonTransGreyPressed" />
-            <solid android:color="@color/buttonTransGreyPressed"/>
-        </shape>
-    </item>
-    <item android:state_focused="true">
-        <shape android:shape="rectangle"  >
-            <corners android:radius="10dip" />
-            <stroke android:width="1dip" android:color="@color/buttonGreyToggled" />
-            <solid android:color="@color/buttonGreyToggled"/>
+            <stroke android:width="1dip" android:color="@color/buttonTransGreyToggled" />
+            <solid android:color="@color/buttonTransGreyToggled"/>
         </shape>
     </item>
     <item >

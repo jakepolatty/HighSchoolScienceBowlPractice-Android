@@ -5,8 +5,8 @@
     <color name="statusBarColor">#4aa8fe</color>
     <color name="buttonTransGrey">#0a58b1</color>
     <color name="buttonTransGreyPressed">#1a6bc9</color>
-    <color name="buttonGreyToggled">#002a54</color>
+    <color name="buttonTransGreyToggled">#002a54</color>
     <color name="buttonTransGreen">#19c18e</color>
-    <color name="buttonTransGreenPressed">#31d6a4</color>
+    <color name="buttonTransGreenPressed">#26d39e</color>
     <color name="white100">#ffffff</color>
 </resources>

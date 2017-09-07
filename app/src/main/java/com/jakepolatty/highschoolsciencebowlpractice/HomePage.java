@@ -19,33 +19,9 @@ public class HomePage extends AppCompatActivity {
         quizModeOptionButton = (Button) findViewById(R.id.quizModeOptionButton);
         readerModeOptionButton = (Button) findViewById(R.id.readerModeOptionButton);
         studyModeOptionButton = (Button) findViewById(R.id.studyModeOptionButton);
-
-//        View.OnClickListener quizModeListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("Quiz Mode");
-//            }
-//        };
-//        quizModeOptionButton.setOnClickListener(quizModeListener);
-//
-//        View.OnClickListener readerModeListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("Reader Mode");
-//            }
-//        };
-//        readerModeOptionButton.setOnClickListener(readerModeListener);
-//
-//        View.OnClickListener studyModeListener = new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                System.out.println("Study Mode");
-//            }
-//        };
-//        studyModeOptionButton.setOnClickListener(studyModeListener);
     }
 
-    public void startQuizMode(View view) {
+    public void openQuizModeSettings(View view) {
         Intent intent = new Intent(HomePage.this, QuizModeSettingsActivity.class);
         startActivity(intent);
     }
