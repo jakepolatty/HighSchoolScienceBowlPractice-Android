@@ -191,6 +191,9 @@
                     android:theme="@style/spinnerStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:popupBackground="@color/buttonTransGrey"
+                    android:dropDownWidth="140dp"
                     android:entries="@array/quiz_tossup_time_options">
                 </Spinner>
             </LinearLayout>
@@ -213,6 +216,9 @@
                     android:theme="@style/spinnerStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown"
+                    android:popupBackground="@color/buttonTransGrey"
+                    android:dropDownWidth="140dp"
                     android:entries="@array/quiz_bonus_time_options">
                 </Spinner>
             </LinearLayout>

@@ -32,6 +32,7 @@
         android:width="150dp"
         android:background="@drawable/homepagebutton"
         android:text="Quiz Mode"
+        android:onClick="startQuizMode"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"/>
