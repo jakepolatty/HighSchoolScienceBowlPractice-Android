@@ -95,20 +95,67 @@ public class QuizModePage extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.nextButton);
     }
 
-    public void selectOptionW(View view) {
+    private void disableButtons() {
+        optionWButton.setEnabled(false);
+        optionXButton.setEnabled(false);
+        optionYButton.setEnabled(false);
+        optionZButton.setEnabled(false);
+    }
 
+    private void makeCorrectAnswerButtonGreen() {
+        char answerLetter = question.getAnswerLetter();
+        if (answerLetter == 'W') {
+            optionWButton.setBackgroundResource(R.drawable.quizoptionbuttoncorrect);
+        } else if (answerLetter == 'X') {
+            optionXButton.setBackgroundResource(R.drawable.quizoptionbuttoncorrect);
+        } else if (answerLetter == 'Y') {
+            optionYButton.setBackgroundResource(R.drawable.quizoptionbuttoncorrect);
+        } else if (answerLetter == 'Z') {
+            optionZButton.setBackgroundResource(R.drawable.quizoptionbuttoncorrect);
+        }
+    }
+
+    private void optionSelected() {
+        disableButtons();
+        makeCorrectAnswerButtonGreen();
+        nextButton.setVisibility(View.VISIBLE);
+        timerLabel.setVisibility(View.INVISIBLE);
+    }
+
+    public void selectOptionW(View view) {
+        optionSelected();
+        if (question.getAnswerLetter() == 'W') {
+
+        } else {
+            optionWButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+        }
     }
 
     public void selectOptionX(View view) {
+        optionSelected();
+        if (question.getAnswerLetter() == 'X') {
 
+        } else {
+            optionXButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+        }
     }
 
     public void selectOptionY(View view) {
+        optionSelected();
+        if (question.getAnswerLetter() == 'Y') {
 
+        } else {
+            optionYButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+        }
     }
 
     public void selectOptionZ(View view) {
+        optionSelected();
+        if (question.getAnswerLetter() == 'Z') {
 
+        } else {
+            optionZButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+        }
     }
 
     public void finishSet(View view) {

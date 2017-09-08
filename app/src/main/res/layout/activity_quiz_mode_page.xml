@@ -60,7 +60,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:background="@null"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:textColor="@color/white100"
         android:textSize="17sp"
         android:textAllCaps="false"
