@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
+import com.jakepolatty.highschoolsciencebowlpractice.model.Question;
+import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionJSONParser;
 
 public class QuizModePage extends AppCompatActivity {
     // Question text fields

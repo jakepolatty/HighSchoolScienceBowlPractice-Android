@@ -4,10 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by jakepolatty on 9/7/17.
- */
-
 enum QuestionJSONKeys {
     QuestionText("qTxt"),
     QuestionAnswer("qAns"),
@@ -101,5 +97,41 @@ public class Question {
             case "SA": return AnswerType.ShortAnswer;
             default: return AnswerType.ShortAnswer;
         }
+    }
+
+    public String getQuestionText() {
+        return questionText;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public QuestionType getQuestionType() {
+        return questionType;
+    }
+
+    public AnswerType getAnswerType() {
+        return answerType;
+    }
+
+    public int getSetNumber() {
+        return setNumber;
+    }
+
+    public int getRoundNumber() {
+        return roundNumber;
+    }
+
+    public int getQuestionNumber() {
+        return questionNumber;
+    }
+
+    public String[] getAnswerChoices() {
+        return answerChoices;
+    }
+
+    public String getAnswer() {
+        return answer;
     }
 }
