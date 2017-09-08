@@ -134,4 +134,8 @@ public class Question {
     public String getAnswer() {
         return answer;
     }
+
+    public char getAnswerLetter() {
+        return answer.charAt(0);
+    }
 }
