@@ -11,6 +11,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -71,5 +74,93 @@ public class QuestionJSONParser {
         Random rand = new Random();
         int randomIndex = rand.nextInt(parsedQuestions.length);
         return parseQuestionForIndex(randomIndex);
+    }
+
+    public Question getQuestionForCategory(Category category) {
+        while (true) {
+            Question question = getRandomQuestion();
+            if (question.getCategory() == category) {
+                return question;
+            }
+        }
+        // Will never time out because of limited enum values
+    }
+
+    public Question getQuestionForCategoryAndRound(Category category, int round) {
+        while (true) {
+            Question question = getRandomQuestion();
+            if (question.getCategory() == category && question.getRoundNumber() == round) {
+                return question;
+            }
+        }
+        // Will never time out because of limited category and round selections
+    }
+
+    public Question getQuestionForRound(int round) {
+        while (true) {
+            Question question = getRandomQuestion();
+            if (question.getRoundNumber() == round) {
+                return question;
+            }
+        }
+        // Will never time out because of limited round selections
+    }
+
+    public Question getQuestionForSetAndRound(int set, int round) {
+        while (true) {
+            Question question = getRandomQuestion();
+            if (question.getSetNumber() == set && question.getRoundNumber() == round) {
+                return question;
+            }
+        }
+        // Will never time out because of limited set and round selections
+    }
+
+    public Question getMCQuestion() {
+        while (true) {
+            Question question = getRandomQuestion();
+            if (question.getAnswerType() == AnswerType.MultipleChoice) {
+                return question;
+            }
+        }
+    }
+
+    public Question getMCQuestionForCategory(Category category) {
+        while (true) {
+            Question question = getMCQuestion();
+            if (question.getCategory() == category) {
+                return question;
+            }
+        }
+        // Will never time out because of limited category selections
+    }
+
+    // Full question set methods
+
+    public Question[] getQuestionSetForSetAndRound(int set, int round) {
+        ArrayList<Question> tempList = new ArrayList<Question>();
+        for (Question question : parsedQuestions) {
+            if (question.getSetNumber() == set && question.getRoundNumber() == round) {
+                tempList.add(question);
+            }
+        }
+        Question[] qArray = tempList.toArray(new Question[0]);
+        Arrays.sort(qArray, new Comparator<Question>() {
+            @Override
+            public int compare(Question q1, Question q2) {
+                if (q1.getQuestionNumber() < q2.getQuestionNumber()) {
+                    return -1;
+                } else if (q1.getQuestionNumber() == q2.getQuestionNumber()) {
+                    if (q1.getQuestionType() == QuestionType.Tossup) {
+                        return -1;
+                    } else {
+                        return 1;
+                    }
+                } else {
+                    return 1;
+                }
+            }
+        });
+        return qArray;
     }
 }
