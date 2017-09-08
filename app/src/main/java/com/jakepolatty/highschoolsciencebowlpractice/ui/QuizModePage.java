@@ -27,7 +27,9 @@ public class QuizModePage extends AppCompatActivity {
     private Button optionYButton;
     private Button optionZButton;
 
+    // Toolbar Buttons
     private Button menuButton;
+    private Button nextButton;
 
     // Timer Label
     private TextView timerLabel;
@@ -49,7 +51,7 @@ public class QuizModePage extends AppCompatActivity {
         category = intent.getStringExtra("CATEGORY");
         tossupTime = intent.getIntExtra("TOSSUP_TIME", 10);
         bonusTime = intent.getIntExtra("BONUS_TIME", 10);
-        if (category == "Random") {
+        if (category.equals("Random")) {
             question = QuestionJSONParser.getInstance().getMCQuestion();
         } else {
             Category parsedCategory = getCategoryForString(category);
@@ -90,6 +92,7 @@ public class QuizModePage extends AppCompatActivity {
         optionZButton.setText(question.getAnswerChoices()[3]);
 
         menuButton = (Button) findViewById(R.id.menuButton);
+        nextButton = (Button) findViewById(R.id.nextButton);
     }
 
     public void selectOptionW(View view) {
@@ -112,6 +115,17 @@ public class QuizModePage extends AppCompatActivity {
         // Temporary - replace with stats page
         menuButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(QuizModePage.this, HomePage.class);
+        startActivity(intent);
+    }
+
+    public void loadNextQuestion(View view) {
+        nextButton.setTextColor(Color.parseColor("#94cffe"));
+        Intent intent = new Intent(QuizModePage.this, QuizModePage.class);
+
+        intent.putExtra("CATEGORY", category);
+        intent.putExtra("TOSSUP_TIME", tossupTime);
+        intent.putExtra("BONUS_TIME", bonusTime);
+
         startActivity(intent);
     }
 
