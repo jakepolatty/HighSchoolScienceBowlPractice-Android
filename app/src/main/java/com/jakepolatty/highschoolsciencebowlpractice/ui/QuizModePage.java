@@ -2,6 +2,7 @@ package com.jakepolatty.highschoolsciencebowlpractice.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -42,7 +43,7 @@ public class QuizModePage extends AppCompatActivity {
     private QuizModeStats stats;
 
     private Question question;
-    private int seconds = 0;
+    private CountDownTimer timer;
 
 
     @Override
@@ -61,6 +62,7 @@ public class QuizModePage extends AppCompatActivity {
             question = QuestionJSONParser.getInstance().getMCQuestionForCategory(parsedCategory);
         }
 
+        int seconds;
         if (question.getQuestionType() == QuestionType.Tossup) {
             seconds = tossupTime;
         } else {
@@ -96,6 +98,21 @@ public class QuizModePage extends AppCompatActivity {
 
         menuButton = (Button) findViewById(R.id.menuButton);
         nextButton = (Button) findViewById(R.id.nextButton);
+
+        timer = new CountDownTimer(seconds * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timerLabel.setText(millisUntilFinished/1000 + " Seconds Left");
+            }
+
+            @Override
+            public void onFinish() {
+                timerLabel.setText("Time's Up");
+                stats.addNotAnswered();
+                timedOut();
+            }
+        };
+        timer.start();
     }
 
     private void disableButtons() {
@@ -119,10 +136,17 @@ public class QuizModePage extends AppCompatActivity {
     }
 
     private void optionSelected() {
+        timer.cancel();
         disableButtons();
         makeCorrectAnswerButtonGreen();
         nextButton.setVisibility(View.VISIBLE);
         timerLabel.setVisibility(View.INVISIBLE);
+    }
+
+    private void timedOut() {
+        disableButtons();
+        makeCorrectAnswerButtonGreen();
+        nextButton.setVisibility(View.VISIBLE);
     }
 
     public void selectOptionW(View view) {
