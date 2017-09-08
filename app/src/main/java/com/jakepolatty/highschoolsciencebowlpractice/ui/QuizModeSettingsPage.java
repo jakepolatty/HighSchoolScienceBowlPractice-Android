@@ -56,6 +56,11 @@ public class QuizModeSettingsPage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void returnMainMenu(View view) {
+        Intent intent = new Intent(QuizModeSettingsPage.this, HomePage.class);
+        startActivity(intent);
+    }
+
     private int getTossupTimeSelected() {
         String timeString = tossupTimeSpinner.getSelectedItem().toString();
         switch (timeString) {
