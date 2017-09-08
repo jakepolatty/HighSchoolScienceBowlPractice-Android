@@ -1,4 +1,4 @@
-package com.jakepolatty.highschoolsciencebowlpractice;
+package com.jakepolatty.highschoolsciencebowlpractice.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
+
+import com.jakepolatty.highschoolsciencebowlpractice.R;
 
 public class QuizModeSettingsPage extends AppCompatActivity {
     private String selectedCategory = "Random";
