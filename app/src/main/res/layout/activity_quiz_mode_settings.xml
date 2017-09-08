@@ -30,7 +30,8 @@
         android:layout_marginBottom="16dp"
         android:text="@string/quiz_mode"
         android:textColor="@android:color/white"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
     <ScrollView
         android:layout_width="match_parent"

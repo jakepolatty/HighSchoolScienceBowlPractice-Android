@@ -1,9 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.jakepolatty.highschoolsciencebowlpractice.QuizModePage">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/quiz_mode"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/roundSetNumLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question Set 8 Round 17"
+                android:layout_marginTop="30dp"
+                android:textSize="14sp"
+                android:textColor="@color/metadataLabelText"/>
+
+            <TextView
+                android:id="@+id/questionNumLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Question 11 Tossup"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/metadataLabelText"/>
+
+            <TextView
+                android:id="@+id/categoryTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Physics Multiple Choice"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/metadataLabelText"/>
+
+            <TextView
+                android:id="@+id/questionTextLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A projectile is fired from a gun at an angle of 45º with respect to the horizontal. Given 9.8 meters per second squared as the acceleration due to gravity, and neglecting air resistance, what are the magnitude and direction of the acceleration of the projectile when it reaches its maximum height?"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="17sp"
+                android:textColor="@color/white100"/>
+
+            <Button
+                android:id="@+id/optionWButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/quizoptionbutton"
+                android:text="W) The table pushing down on the floor with force mg"
+                android:textColor="@color/white100"
+                android:textSize="12sp"
+                android:gravity="center_vertical|start"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"/>
+
+            <Button
+                android:id="@+id/optionXButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/quizoptionbutton"
+                android:text="X) The object pushing down on the table with force mg"
+                android:textColor="@color/white100"
+                android:textSize="12sp"
+                android:gravity="center_vertical|start"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"/>
+
+            <Button
+                android:id="@+id/optionYButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/quizoptionbutton"
+                android:text="Y) The object pulling upward on the Earth with force mg"
+                android:textColor="@color/white100"
+                android:textSize="12sp"
+                android:gravity="center_vertical|start"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"/>
+
+            <Button
+                android:id="@+id/optionZButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/quizoptionbutton"
+                android:text="Z) The table pushing up on the object with force mg"
+                android:textColor="@color/white100"
+                android:textSize="12sp"
+                android:gravity="center_vertical|start"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"/>
+
+            <TextView
+                android:id="@+id/timerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 Seconds Left"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:textSize="16sp"
+                android:textColor="@color/timerLabelText"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

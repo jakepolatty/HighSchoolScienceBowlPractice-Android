@@ -9,4 +9,8 @@
     <color name="buttonTransGreen">#19c18e</color>
     <color name="buttonTransGreenPressed">#26d39e</color>
     <color name="white100">#ffffff</color>
+    <color name="metadataLabelText">#94cffe</color>
+    <color name="timerLabelText">#8bcaff</color>
+    <color name="quizButtonCorrect">#19c06b</color>
+    <color name="quizButtonWrong">#6b346b</color>
 </resources>
