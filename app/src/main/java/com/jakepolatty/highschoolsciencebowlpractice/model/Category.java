@@ -5,14 +5,14 @@ package com.jakepolatty.highschoolsciencebowlpractice.model;
  */
 
 public enum Category {
-    BIOLOGY("Biology"),
-    CHEMISTRY("Chemistry"),
-    EARTHANDSPACE("Earth and Space"),
-    ENERGY("Energy"),
-    MATHEMATICS("Mathematics"),
-    PHYSICS("Physics"),
-    GENERALSCIENCE("General Science"),
-    COMPUTERSCIENCE("Computer Science");
+    Biology("Biology"),
+    Chemistry("Chemistry"),
+    EarthAndSpace("Earth and Space"),
+    Energy("Energy"),
+    Mathematics("Mathematics"),
+    Physics("Physics"),
+    GeneralScience("General Science"),
+    ComputerScience("Computer Science");
 
     private final String displayName;
 
