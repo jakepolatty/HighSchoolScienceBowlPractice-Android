@@ -13,6 +13,7 @@ import com.jakepolatty.highschoolsciencebowlpractice.model.Category;
 import com.jakepolatty.highschoolsciencebowlpractice.model.Question;
 import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionJSONParser;
 import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionType;
+import com.jakepolatty.highschoolsciencebowlpractice.model.QuizModeStats;
 
 public class QuizModePage extends AppCompatActivity {
     // Question text fields
@@ -38,6 +39,7 @@ public class QuizModePage extends AppCompatActivity {
     private String category;
     private int tossupTime;
     private int bonusTime;
+    private QuizModeStats stats;
 
     private Question question;
     private int seconds = 0;
@@ -51,6 +53,7 @@ public class QuizModePage extends AppCompatActivity {
         category = intent.getStringExtra("CATEGORY");
         tossupTime = intent.getIntExtra("TOSSUP_TIME", 10);
         bonusTime = intent.getIntExtra("BONUS_TIME", 10);
+        stats = intent.getParcelableExtra("STATS");
         if (category.equals("Random")) {
             question = QuestionJSONParser.getInstance().getMCQuestion();
         } else {
@@ -125,42 +128,47 @@ public class QuizModePage extends AppCompatActivity {
     public void selectOptionW(View view) {
         optionSelected();
         if (question.getAnswerLetter() == 'W') {
-
+            stats.addCorrect();
         } else {
             optionWButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+            stats.addIncorrect();
         }
     }
 
     public void selectOptionX(View view) {
         optionSelected();
         if (question.getAnswerLetter() == 'X') {
-
+            stats.addCorrect();
         } else {
             optionXButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+            stats.addIncorrect();
         }
     }
 
     public void selectOptionY(View view) {
         optionSelected();
         if (question.getAnswerLetter() == 'Y') {
-
+            stats.addCorrect();
         } else {
             optionYButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+            stats.addIncorrect();
         }
     }
 
     public void selectOptionZ(View view) {
         optionSelected();
         if (question.getAnswerLetter() == 'Z') {
-
+            stats.addCorrect();
         } else {
             optionZButton.setBackgroundResource(R.drawable.quizoptionbuttonwrong);
+            stats.addIncorrect();
         }
     }
 
     public void finishSet(View view) {
         // Temporary - replace with stats page
         menuButton.setTextColor(Color.parseColor("#94cffe"));
+        System.out.println("Correct: " + stats.getNumberCorrect() + " Incorrect: " + stats.getNumberIncorrect());
         Intent intent = new Intent(QuizModePage.this, HomePage.class);
         startActivity(intent);
     }
@@ -172,6 +180,7 @@ public class QuizModePage extends AppCompatActivity {
         intent.putExtra("CATEGORY", category);
         intent.putExtra("TOSSUP_TIME", tossupTime);
         intent.putExtra("BONUS_TIME", bonusTime);
+        intent.putExtra("STATS", stats);
 
         startActivity(intent);
     }

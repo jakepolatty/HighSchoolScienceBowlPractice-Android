@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
+import com.jakepolatty.highschoolsciencebowlpractice.model.QuizModeStats;
 
 public class QuizModeSettingsPage extends AppCompatActivity {
     private String selectedCategory = "Random";
@@ -57,6 +58,9 @@ public class QuizModeSettingsPage extends AppCompatActivity {
         intent.putExtra("TOSSUP_TIME", tossupTime);
         int bonusTime = getBonusTimeSelected();
         intent.putExtra("BONUS_TIME", bonusTime);
+
+        QuizModeStats stats = new QuizModeStats();
+        intent.putExtra("STATS", stats);
 
         startActivity(intent);
     }
