@@ -1,6 +1,7 @@
 package com.jakepolatty.highschoolsciencebowlpractice.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +28,8 @@ public class QuizModeSettingsPage extends AppCompatActivity {
 
     private Button startSetButton;
 
+    private Button menuButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,8 @@ public class QuizModeSettingsPage extends AppCompatActivity {
 
         tossupTimeSpinner = (Spinner) findViewById(R.id.tossupTimeSelector);
         bonusTimeSpinner = (Spinner) findViewById(R.id.bonusTimeSelector);
+
+        menuButton = (Button) findViewById(R.id.menuButton);
     }
 
     public void startQuizMode(View view) {
@@ -57,6 +62,7 @@ public class QuizModeSettingsPage extends AppCompatActivity {
     }
 
     public void returnMainMenu(View view) {
+        menuButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(QuizModeSettingsPage.this, HomePage.class);
         startActivity(intent);
     }

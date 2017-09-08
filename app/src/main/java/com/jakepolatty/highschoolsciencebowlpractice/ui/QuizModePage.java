@@ -1,6 +1,7 @@
 package com.jakepolatty.highschoolsciencebowlpractice.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,8 @@ public class QuizModePage extends AppCompatActivity {
     private Button optionXButton;
     private Button optionYButton;
     private Button optionZButton;
+
+    private Button menuButton;
 
     // Timer Label
     private TextView timerLabel;
@@ -75,9 +78,18 @@ public class QuizModePage extends AppCompatActivity {
         timerLabel.setText(seconds + " Seconds Left");
 
         optionWButton = (Button) findViewById(R.id.optionWButton);
+        optionWButton.setText(question.getAnswerChoices()[0]);
+
         optionXButton = (Button) findViewById(R.id.optionXButton);
+        optionXButton.setText(question.getAnswerChoices()[1]);
+
         optionYButton = (Button) findViewById(R.id.optionYButton);
+        optionYButton.setText(question.getAnswerChoices()[2]);
+
         optionZButton = (Button) findViewById(R.id.optionZButton);
+        optionZButton.setText(question.getAnswerChoices()[3]);
+
+        menuButton = (Button) findViewById(R.id.menuButton);
     }
 
     public void selectOptionW(View view) {
@@ -94,6 +106,13 @@ public class QuizModePage extends AppCompatActivity {
 
     public void selectOptionZ(View view) {
 
+    }
+
+    public void finishSet(View view) {
+        // Temporary - replace with stats page
+        menuButton.setTextColor(Color.parseColor("#94cffe"));
+        Intent intent = new Intent(QuizModePage.this, HomePage.class);
+        startActivity(intent);
     }
 
     private Category getCategoryForString(String s) {
