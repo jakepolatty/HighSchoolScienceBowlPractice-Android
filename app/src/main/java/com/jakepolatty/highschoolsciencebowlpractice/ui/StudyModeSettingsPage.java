@@ -6,12 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
 
 public class StudyModeSettingsPage extends AppCompatActivity {
+    private static final String[] roundOptions = {"All Rounds", "Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Round 6", "Round 7", "Round 8", "Round 9", "Round 10", "Round 11", "Round 12", "Round 13", "Round 14", "Round 15", "Round 16", "Round 17"};
+
     private String selectedCategory = "Random";
 
     // Topic option toggle buttons
@@ -23,7 +26,7 @@ public class StudyModeSettingsPage extends AppCompatActivity {
     private ToggleButton physicsButton;
     private ToggleButton randomButton;
 
-    private Spinner roundNumSpinner;
+    private NumberPicker roundNumPicker;
 
     private Button menuButton;
 
@@ -40,7 +43,11 @@ public class StudyModeSettingsPage extends AppCompatActivity {
         physicsButton = (ToggleButton) findViewById(R.id.physicsButton);
         randomButton = (ToggleButton) findViewById(R.id.randomButton);
 
-        roundNumSpinner = (Spinner) findViewById(R.id.roundNumSelector);
+        roundNumPicker = (NumberPicker) findViewById(R.id.roundNumPicker);
+        roundNumPicker.setMinValue(0);
+        roundNumPicker.setMaxValue(roundOptions.length-1);
+        roundNumPicker.setWrapSelectorWheel(false);
+        roundNumPicker.setDisplayedValues(roundOptions);
 
         menuButton = (Button) findViewById(R.id.menuButton);
     }
@@ -49,7 +56,7 @@ public class StudyModeSettingsPage extends AppCompatActivity {
         Intent intent = new Intent(StudyModeSettingsPage.this, StudyModePage.class);
         intent.putExtra("CATEGORY", selectedCategory);
 
-        int roundNum = getRoundNumSelected();
+        int roundNum = roundNumPicker.getValue();
         intent.putExtra("ROUND", roundNum);
 
         startActivity(intent);
@@ -59,31 +66,6 @@ public class StudyModeSettingsPage extends AppCompatActivity {
         menuButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(StudyModeSettingsPage.this, HomePage.class);
         startActivity(intent);
-    }
-
-    private int getRoundNumSelected() {
-        String timeString = roundNumSpinner.getSelectedItem().toString();
-        switch (timeString) {
-            case "All Rounds": return 0;
-            case "Round 1": return 1;
-            case "Round 2": return 2;
-            case "Round 3": return 3;
-            case "Round 4": return 4;
-            case "Round 5": return 5;
-            case "Round 6": return 6;
-            case "Round 7": return 7;
-            case "Round 8": return 8;
-            case "Round 9": return 9;
-            case "Round 10": return 10;
-            case "Round 11": return 11;
-            case "Round 12": return 12;
-            case "Round 13": return 13;
-            case "Round 14": return 14;
-            case "Round 15": return 15;
-            case "Round 16": return 16;
-            case "Round 17": return 17;
-            default: return 0;
-        }
     }
 
     private void toggleOff() {

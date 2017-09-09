@@ -261,7 +261,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white100"
                 android:width="120dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="30dp"/>
         </LinearLayout>
     </ScrollView>
 
