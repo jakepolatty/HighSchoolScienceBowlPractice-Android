@@ -11,4 +11,6 @@
     <style name="spinnerStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
         <item name="android:textColor">@color/white100</item>
     </style>
+    <style name="alertStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+    </style>
 </resources>

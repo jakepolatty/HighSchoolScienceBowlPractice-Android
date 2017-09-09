@@ -1,7 +1,9 @@
 package com.jakepolatty.highschoolsciencebowlpractice.ui;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -59,7 +61,16 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
         int setNum = setNumPicker.getValue() + 1;
         int roundNum = roundNumPicker.getValue() + 1;
         if ((roundNum == 16 || roundNum == 17) && (setNum == 5 || setNum == 6)) {
-
+            final AlertDialog.Builder builder = new AlertDialog.Builder(ReaderModeSettingsPage.this, R.style.alertStyle);
+            builder.setTitle("Invalid Set");
+            builder.setMessage("The chosen question set is not available.");
+            builder.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialogInterface.cancel();
+                }
+            });
+            builder.show();
         } else {
             Intent intent = new Intent(ReaderModeSettingsPage.this, ReaderModePage.class);
 
