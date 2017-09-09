@@ -44,7 +44,7 @@ public class StudyModePage extends AppCompatActivity {
         category = intent.getStringExtra("CATEGORY");
         round = intent.getIntExtra("ROUND", 0);
 
-        if (category == "Random") {
+        if (category.equals("Random")) {
             if (round == 0) {
                 question = QuestionJSONParser.getInstance().getRandomQuestion();
             } else {
@@ -89,6 +89,12 @@ public class StudyModePage extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.nextButton);
 
         showAnswerButton = (Button) findViewById(R.id.showAnswerButton);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        nextButton.setTextColor(Color.parseColor("#ffffff"));
     }
 
     public void returnMainMenu(View view) {

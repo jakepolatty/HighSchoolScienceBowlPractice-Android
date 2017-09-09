@@ -149,6 +149,11 @@ public class QuizModePage extends AppCompatActivity {
         nextButton.setVisibility(View.VISIBLE);
     }
 
+    @Override
+    public void onBackPressed() {
+        // Prevents user from moving back through questions
+    }
+
     public void selectOptionW(View view) {
         optionSelected();
         if (question.getAnswerLetter() == 'W') {
