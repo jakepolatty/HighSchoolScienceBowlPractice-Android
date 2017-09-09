@@ -56,20 +56,24 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
     }
 
     public void startReaderMode(View view) {
-        Intent intent = new Intent(ReaderModeSettingsPage.this, ReaderModePage.class);
-
         int setNum = setNumPicker.getValue() + 1;
         int roundNum = roundNumPicker.getValue() + 1;
-        QuestionJSONParser.getInstance().saveQuestionSetForSetAndRound(setNum, roundNum);
+        if ((roundNum == 16 || roundNum == 17) && (setNum == 5 || setNum == 6)) {
 
-        int tossupTime = getTossupTimeSelected();
-        intent.putExtra("TOSSUP_TIME", tossupTime);
-        int bonusTime = getBonusTimeSelected();
-        intent.putExtra("BONUS_TIME", bonusTime);
+        } else {
+            Intent intent = new Intent(ReaderModeSettingsPage.this, ReaderModePage.class);
 
-        intent.putExtra("INDEX", 0);
+            QuestionJSONParser.getInstance().saveQuestionSetForSetAndRound(setNum, roundNum);
 
-        startActivity(intent);
+            int tossupTime = getTossupTimeSelected();
+            intent.putExtra("TOSSUP_TIME", tossupTime);
+            int bonusTime = getBonusTimeSelected();
+            intent.putExtra("BONUS_TIME", bonusTime);
+
+            intent.putExtra("INDEX", 0);
+
+            startActivity(intent);
+        }
     }
 
     private int getTossupTimeSelected() {

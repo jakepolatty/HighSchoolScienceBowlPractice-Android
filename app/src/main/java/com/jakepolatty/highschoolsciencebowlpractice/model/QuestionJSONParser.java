@@ -168,4 +168,8 @@ public class QuestionJSONParser {
     public Question getCurrentReaderQuestion(int index) {
         return currentReaderSet[index];
     }
+
+    public int getCurrentReaderSetLength() {
+        return currentReaderSet.length;
+    }
 }
