@@ -18,4 +18,24 @@
         <item>35 Seconds</item>
         <item>40 Seconds</item>
     </string-array>
+    <string-array name="study_round_options">
+        <item>All Rounds</item>
+        <item>Round 1</item>
+        <item>Round 2</item>
+        <item>Round 3</item>
+        <item>Round 4</item>
+        <item>Round 5</item>
+        <item>Round 6</item>
+        <item>Round 7</item>
+        <item>Round 8</item>
+        <item>Round 9</item>
+        <item>Round 10</item>
+        <item>Round 11</item>
+        <item>Round 12</item>
+        <item>Round 13</item>
+        <item>Round 14</item>
+        <item>Round 15</item>
+        <item>Round 16</item>
+        <item>Round 17</item>
+    </string-array>
 </resources>

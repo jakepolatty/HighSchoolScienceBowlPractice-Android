@@ -10,9 +10,8 @@ import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
-import com.jakepolatty.highschoolsciencebowlpractice.model.QuizModeStats;
 
-public class QuizModeSettingsPage extends AppCompatActivity {
+public class StudyModeSettingsPage extends AppCompatActivity {
     private String selectedCategory = "Random";
 
     // Topic option toggle buttons
@@ -24,15 +23,14 @@ public class QuizModeSettingsPage extends AppCompatActivity {
     private ToggleButton physicsButton;
     private ToggleButton randomButton;
 
-    private Spinner tossupTimeSpinner;
-    private Spinner bonusTimeSpinner;
+    private Spinner roundNumSpinner;
 
     private Button menuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_mode_settings);
+        setContentView(R.layout.activity_study_mode_settings_page);
 
         biologyButton = (ToggleButton) findViewById(R.id.biologyButton);
         chemistryButton = (ToggleButton) findViewById(R.id.chemistryButton);
@@ -42,58 +40,49 @@ public class QuizModeSettingsPage extends AppCompatActivity {
         physicsButton = (ToggleButton) findViewById(R.id.physicsButton);
         randomButton = (ToggleButton) findViewById(R.id.randomButton);
 
-        tossupTimeSpinner = (Spinner) findViewById(R.id.tossupTimeSelector);
-        bonusTimeSpinner = (Spinner) findViewById(R.id.bonusTimeSelector);
+        roundNumSpinner = (Spinner) findViewById(R.id.roundNumSelector);
 
         menuButton = (Button) findViewById(R.id.menuButton);
     }
 
-    public void startQuizMode(View view) {
-        Intent intent = new Intent(QuizModeSettingsPage.this, QuizModePage.class);
+    public void startStudyMode(View view) {
+        Intent intent = new Intent(StudyModeSettingsPage.this, StudyModePage.class);
         intent.putExtra("CATEGORY", selectedCategory);
 
-        int tossupTime = getTossupTimeSelected();
-        intent.putExtra("TOSSUP_TIME", tossupTime);
-        int bonusTime = getBonusTimeSelected();
-        intent.putExtra("BONUS_TIME", bonusTime);
-
-        QuizModeStats stats = new QuizModeStats();
-        intent.putExtra("STATS", stats);
+        int roundNum = getRoundNumSelected();
+        intent.putExtra("ROUND", roundNum);
 
         startActivity(intent);
     }
 
     public void returnMainMenu(View view) {
         menuButton.setTextColor(Color.parseColor("#94cffe"));
-        Intent intent = new Intent(QuizModeSettingsPage.this, HomePage.class);
+        Intent intent = new Intent(StudyModeSettingsPage.this, HomePage.class);
         startActivity(intent);
     }
 
-    private int getTossupTimeSelected() {
-        String timeString = tossupTimeSpinner.getSelectedItem().toString();
+    private int getRoundNumSelected() {
+        String timeString = roundNumSpinner.getSelectedItem().toString();
         switch (timeString) {
-            case "5 Seconds": return 5;
-            case "10 Seconds": return 10;
-            case "15 Seconds": return 15;
-            case "20 Seconds": return 20;
-            case "25 Seconds": return 25;
-            case "30 Seconds": return 30;
-            default: return 10;
-        }
-    }
-
-    private int getBonusTimeSelected() {
-        String timeString = bonusTimeSpinner.getSelectedItem().toString();
-        switch (timeString) {
-            case "5 Seconds": return 5;
-            case "10 Seconds": return 10;
-            case "15 Seconds": return 15;
-            case "20 Seconds": return 20;
-            case "25 Seconds": return 25;
-            case "30 Seconds": return 30;
-            case "35 Seconds": return 35;
-            case "40 Seconds": return 40;
-            default: return 10;
+            case "All Rounds": return 0;
+            case "Round 1": return 1;
+            case "Round 2": return 2;
+            case "Round 3": return 3;
+            case "Round 4": return 4;
+            case "Round 5": return 5;
+            case "Round 6": return 6;
+            case "Round 7": return 7;
+            case "Round 8": return 8;
+            case "Round 9": return 9;
+            case "Round 10": return 10;
+            case "Round 11": return 11;
+            case "Round 12": return 12;
+            case "Round 13": return 13;
+            case "Round 14": return 14;
+            case "Round 15": return 15;
+            case "Round 16": return 16;
+            case "Round 17": return 17;
+            default: return 0;
         }
     }
 

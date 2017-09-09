@@ -48,6 +48,7 @@
         android:width="150dp"
         android:background="@drawable/homepagebutton"
         android:text="@string/reader_mode"
+        android:onClick="openReaderModeSettings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"/>
@@ -63,6 +64,7 @@
         android:width="150dp"
         android:background="@drawable/homepagebutton"
         android:text="@string/study_mode"
+        android:onClick="openStudyModeSettings"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="18sp"/>

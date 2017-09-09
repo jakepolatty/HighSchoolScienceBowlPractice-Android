@@ -19,6 +19,10 @@
         </activity>
         <activity android:name=".ui.QuizModePage">
         </activity>
+        <activity android:name=".ui.StudyModeSettingsPage">
+        </activity>
+        <activity android:name=".ui.StudyModePage">
+        </activity>
     </application>
 
 </manifest>

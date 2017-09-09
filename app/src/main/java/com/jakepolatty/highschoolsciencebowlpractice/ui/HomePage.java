@@ -30,4 +30,14 @@ public class HomePage extends AppCompatActivity {
         Intent intent = new Intent(HomePage.this, QuizModeSettingsPage.class);
         startActivity(intent);
     }
+
+    public void openReaderModeSettings(View view) {
+//        Intent intent = new Intent(HomePage.this, ReaderModeSettingsPage.class);
+//        startActivity(intent);
+    }
+
+    public void openStudyModeSettings(View view) {
+        Intent intent = new Intent(HomePage.this, StudyModeSettingsPage.class);
+        startActivity(intent);
+    }
 }
