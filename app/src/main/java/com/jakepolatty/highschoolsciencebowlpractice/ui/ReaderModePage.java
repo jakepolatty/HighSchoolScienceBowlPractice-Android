@@ -133,12 +133,15 @@ public class ReaderModePage extends AppCompatActivity {
     }
 
     public void returnMainMenu(View view) {
+        timer.cancel();
         menuButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(ReaderModePage.this, HomePage.class);
         startActivity(intent);
     }
 
     public void loadNextQuestion(View view) {
+        timer.cancel();
+        timerLabel.setVisibility(View.INVISIBLE);
         nextButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(ReaderModePage.this, ReaderModePage.class);
 
