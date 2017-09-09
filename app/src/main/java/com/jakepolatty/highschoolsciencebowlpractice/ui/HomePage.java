@@ -40,4 +40,14 @@ public class HomePage extends AppCompatActivity {
         Intent intent = new Intent(HomePage.this, StudyModeSettingsPage.class);
         startActivity(intent);
     }
+
+    public void openAboutPage(View view) {
+        Intent intent = new Intent(HomePage.this, AboutPage.class);
+        startActivity(intent);
+    }
+
+    public void openHelpPage(View view) {
+        Intent intent = new Intent(HomePage.this, HelpPage.class);
+        startActivity(intent);
+    }
 }
