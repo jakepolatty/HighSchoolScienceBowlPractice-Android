@@ -10,6 +10,7 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
+import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionJSONParser;
 
 public class ReaderModeSettingsPage extends AppCompatActivity {
     private static final String[] setOptions = {"Set 1", "Set 2", "Set 3", "Set 4", "Set 5", "Set 6", "Set 7", "Set 8"};
@@ -58,14 +59,15 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
         Intent intent = new Intent(ReaderModeSettingsPage.this, ReaderModePage.class);
 
         int setNum = setNumPicker.getValue() + 1;
-        intent.putExtra("SET", setNum);
         int roundNum = roundNumPicker.getValue() + 1;
-        intent.putExtra("ROUND", roundNum);
+        QuestionJSONParser.getInstance().saveQuestionSetForSetAndRound(setNum, roundNum);
 
         int tossupTime = getTossupTimeSelected();
         intent.putExtra("TOSSUP_TIME", tossupTime);
         int bonusTime = getBonusTimeSelected();
         intent.putExtra("BONUS_TIME", bonusTime);
+
+        intent.putExtra("INDEX", 0);
 
         startActivity(intent);
     }

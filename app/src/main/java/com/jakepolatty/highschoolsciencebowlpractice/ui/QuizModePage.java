@@ -99,10 +99,10 @@ public class QuizModePage extends AppCompatActivity {
         menuButton = (Button) findViewById(R.id.menuButton);
         nextButton = (Button) findViewById(R.id.nextButton);
 
-        timer = new CountDownTimer(seconds * 1000, 1000) {
+        timer = new CountDownTimer(seconds * 1000, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
-                timerLabel.setText(millisUntilFinished/1000 + " Seconds Left");
+                timerLabel.setText(Math.round(Math.ceil(millisUntilFinished/1000.0)) + " Seconds Left");
             }
 
             @Override

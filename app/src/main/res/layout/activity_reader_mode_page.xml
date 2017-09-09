@@ -1,10 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.jakepolatty.highschoolsciencebowlpractice.ui.ReaderModePage">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/readerModeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="@string/reader_mode"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu"
+        android:layout_alignBaseline="@+id/readerModeLabel"
+        android:layout_alignBottom="@+id/readerModeLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@null"
+        android:textColor="@color/white100"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:drawableLeft="@drawable/ic_back"
+        android:drawableStart="@drawable/ic_back"
+        android:onClick="returnMainMenu"/>
+
+    <Button
+        android:id="@+id/nextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:layout_alignBaseline="@+id/readerModeLabel"
+        android:layout_alignBottom="@+id/readerModeLabel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@null"
+        android:textColor="@color/white100"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_next"
+        android:drawableEnd="@drawable/ic_next"
+        android:onClick="loadNextQuestion"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/roundSetNumLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textSize="14sp"
+                android:textColor="@color/metadataLabelText"/>
+
+            <TextView
+                android:id="@+id/questionNumLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/metadataLabelText"/>
+
+            <TextView
+                android:id="@+id/categoryTypeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/metadataLabelText"/>
+
+            <TextView
+                android:id="@+id/questionTextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:textSize="17sp"
+                android:textColor="@color/white100"/>
+
+            <TextView
+                android:id="@+id/answerOptionsLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="30dp"
+                android:textSize="16sp"
+                android:textColor="@color/studyAnswerOptionsText"/>
+
+            <TextView
+                android:id="@+id/answerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/readerAnswerText"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/startTimerButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/startsetbutton"
+                android:text="@string/start_timer"
+                android:textAllCaps="false"
+                android:textColor="@color/white100"
+                android:width="120dp"
+                android:layout_marginTop="10dp"
+                android:onClick="startTimer"/>
+
+            <TextView
+                android:id="@+id/timerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-32dp"
+                android:layout_marginBottom="30dp"
+                android:textSize="16sp"
+                android:textColor="@color/timerLabelText"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -34,6 +34,7 @@ public class QuestionJSONParser {
     }
 
     private Question[] parsedQuestions;
+    private Question[] currentReaderSet;
 
     // Initialization from json
 
@@ -137,7 +138,7 @@ public class QuestionJSONParser {
 
     // Full question set methods
 
-    public Question[] getQuestionSetForSetAndRound(int set, int round) {
+    public void saveQuestionSetForSetAndRound(int set, int round) {
         ArrayList<Question> tempList = new ArrayList<Question>();
         for (Question question : parsedQuestions) {
             if (question.getSetNumber() == set && question.getRoundNumber() == round) {
@@ -161,6 +162,10 @@ public class QuestionJSONParser {
                 }
             }
         });
-        return qArray;
+        currentReaderSet = qArray;
+    }
+
+    public Question getCurrentReaderQuestion(int index) {
+        return currentReaderSet[index];
     }
 }

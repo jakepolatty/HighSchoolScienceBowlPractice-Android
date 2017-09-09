@@ -22,4 +22,5 @@
     <string name="and_select_a_round">And Select a Round:</string>
     <string name="show_answer">Show Answer</string>
     <string name="choose_a_question_set">Choose a Question Set:</string>
+    <string name="start_timer">Start Timer</string>
 </resources>
