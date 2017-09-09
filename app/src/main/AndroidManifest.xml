@@ -23,6 +23,10 @@
         </activity>
         <activity android:name=".ui.StudyModePage">
         </activity>
+        <activity android:name=".ui.ReaderModeSettingsPage">
+        </activity>
+        <activity android:name=".ui.ReaderModePage">
+        </activity>
     </application>
 
 </manifest>
