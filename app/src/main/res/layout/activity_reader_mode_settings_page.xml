@@ -89,6 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="50dp"
+                    android:layout_marginEnd="50dp"
                     android:solidColor="@color/buttonTransGrey"
                     android:minWidth="80dp"
                     android:descendantFocusability="blocksDescendants"/>
@@ -166,7 +167,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/startsetbutton"
                 android:text="@string/start_set"
-                android:onClick="startQuizMode"
+                android:onClick="startReaderMode"
                 android:textAllCaps="false"
                 android:textColor="@color/white100"
                 android:width="120dp"

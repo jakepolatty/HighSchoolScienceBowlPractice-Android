@@ -1,7 +1,10 @@
 package com.jakepolatty.highschoolsciencebowlpractice.ui;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
@@ -43,5 +46,49 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
         bonusTimeSpinner = (Spinner) findViewById(R.id.bonusTimeSelector);
 
         menuButton = (Button) findViewById(R.id.menuButton);
+    }
+
+    public void returnMainMenu(View view) {
+        menuButton.setTextColor(Color.parseColor("#94cffe"));
+        Intent intent = new Intent(ReaderModeSettingsPage.this, HomePage.class);
+        startActivity(intent);
+    }
+
+    public void startReaderMode(View view) {
+        Intent intent = new Intent(ReaderModeSettingsPage.this, ReaderModePage.class);
+
+        int setNum = setNumPicker.getValue() + 1;
+        intent.putExtra("SET", setNum);
+        int roundNum = roundNumPicker.getValue() + 1;
+        intent.putExtra("ROUND", roundNum);
+
+        int tossupTime = getTossupTimeSelected();
+        intent.putExtra("TOSSUP_TIME", tossupTime);
+        int bonusTime = getBonusTimeSelected();
+        intent.putExtra("BONUS_TIME", bonusTime);
+
+        startActivity(intent);
+    }
+
+    private int getTossupTimeSelected() {
+        String timeString = tossupTimeSpinner.getSelectedItem().toString();
+        switch (timeString) {
+            case "5 Seconds": return 5;
+            case "10 Seconds": return 10;
+            case "15 Seconds": return 15;
+            default: return 5;
+        }
+    }
+
+    private int getBonusTimeSelected() {
+        String timeString = bonusTimeSpinner.getSelectedItem().toString();
+        switch (timeString) {
+            case "20 Seconds": return 20;
+            case "25 Seconds": return 25;
+            case "30 Seconds": return 30;
+            case "35 Seconds": return 35;
+            case "40 Seconds": return 40;
+            default: return 20;
+        }
     }
 }
