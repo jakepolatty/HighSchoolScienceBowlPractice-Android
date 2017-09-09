@@ -38,4 +38,16 @@
         <item>Round 16</item>
         <item>Round 17</item>
     </string-array>
+    <string-array name="reader_tossup_time_options">
+        <item>5 Seconds</item>
+        <item>10 Seconds</item>
+        <item>15 Seconds</item>
+    </string-array>
+    <string-array name="reader_bonus_time_options">
+        <item>20 Seconds</item>
+        <item>25 Seconds</item>
+        <item>30 Seconds</item>
+        <item>35 Seconds</item>
+        <item>40 Seconds</item>
+    </string-array>
 </resources>
