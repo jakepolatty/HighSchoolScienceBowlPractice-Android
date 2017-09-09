@@ -91,7 +91,19 @@ public class ReaderModePage extends AppCompatActivity {
         timerLabel.setText(seconds + " Seconds Left");
 
         menuButton = (Button) findViewById(R.id.menuButton);
+
         nextButton = (Button) findViewById(R.id.nextButton);
+        if (questionIndex == QuestionJSONParser.getInstance().getCurrentReaderSetLength() - 1) {
+            nextButton.setText("Finish Set");
+            nextButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    nextButton.setTextColor(Color.parseColor("#94cffe"));
+                    Intent intent = new Intent(ReaderModePage.this, ReaderModeSettingsPage.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         startTimerButton = (Button) findViewById(R.id.startTimerButton);
 
