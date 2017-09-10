@@ -1,28 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jakepolatty.highschoolsciencebowlpractice">
+<manifest package="com.jakepolatty.highschoolsciencebowlpractice"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.HomePage">
+        android:supportsRtl="true">
+        <activity
+            android:name=".ui.HomePage"
+            android:theme="@style/LaunchTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.QuizModeSettingsPage"/>
-        <activity android:name=".ui.QuizModePage"/>
-        <activity android:name=".ui.StudyModeSettingsPage"/>
-        <activity android:name=".ui.StudyModePage"/>
-        <activity android:name=".ui.ReaderModeSettingsPage"/>
-        <activity android:name=".ui.ReaderModePage"/>
-        <activity android:name=".ui.AboutPage"/>
-        <activity android:name=".ui.HelpPage"/>
+        <activity
+            android:name=".ui.QuizModeSettingsPage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.QuizModePage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.StudyModeSettingsPage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.StudyModePage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.ReaderModeSettingsPage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.ReaderModePage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.AboutPage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.HelpPage"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".ui.QuizModeStatsPage"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

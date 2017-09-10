@@ -15,4 +15,7 @@
     <color name="quizButtonWrong">#6b346b</color>
     <color name="studyAnswerOptionsText">#cacaca</color>
     <color name="readerAnswerText">#eff7ff</color>
+    <color name="quizStatsCorrect">#19c26c</color>
+    <color name="quizStatsIncorrect">#6c356c</color>
+    <color name="quizStatsNotAnswered">#1a6bc9</color>
 </resources>

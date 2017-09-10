@@ -195,10 +195,12 @@ public class QuizModePage extends AppCompatActivity {
     }
 
     public void finishSet(View view) {
-        // Temporary - replace with stats page
         menuButton.setTextColor(Color.parseColor("#94cffe"));
-        System.out.println("Correct: " + stats.getNumberCorrect() + " Incorrect: " + stats.getNumberIncorrect());
-        Intent intent = new Intent(QuizModePage.this, HomePage.class);
+
+        Intent intent = new Intent(QuizModePage.this, QuizModeStatsPage.class);
+        intent.putExtra("STATS", stats);
+        intent.putExtra("CATEGORY", category);
+
         startActivity(intent);
     }
 

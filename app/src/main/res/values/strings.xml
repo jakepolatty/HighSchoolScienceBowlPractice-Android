@@ -34,4 +34,7 @@
     <string name="reader_mode_label">Reader Mode: Designed for coaches and team leaders to use in meetings to run practice rounds. You can select any specific set from the online database by the set number and round, and can set custom time limits.</string>
     <string name="study_mode_label">Study Mode: Casual mode used for studying questions without a time limit. You can select any category (or all categories) and any round difficulty level (or allow questions from all rounds).</string>
     <string name="app_logo">App Logo</string>
+    <string name="stats">Stats</string>
+    <string name="quiz_results">Quiz Results</string>
+    <string name="no_results_available">No Results Available</string>
 </resources>
