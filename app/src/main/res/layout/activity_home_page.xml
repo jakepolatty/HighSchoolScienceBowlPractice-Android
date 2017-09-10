@@ -98,6 +98,7 @@
         android:onClick="openHelpPage"/>
 
     <ImageView
+        android:contentDescription="@string/app_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_logo"

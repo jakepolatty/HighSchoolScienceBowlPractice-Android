@@ -15,14 +15,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.QuizModeSettingsPage" />
-        <activity android:name=".ui.QuizModePage" />
-        <activity android:name=".ui.StudyModeSettingsPage" />
-        <activity android:name=".ui.StudyModePage" />
-        <activity android:name=".ui.ReaderModeSettingsPage" />
-        <activity android:name=".ui.ReaderModePage" />
-        <activity android:name=".ui.AboutPage" />
-        <activity android:name=".ui.HelpPage"></activity>
+        <activity android:name=".ui.QuizModeSettingsPage"/>
+        <activity android:name=".ui.QuizModePage"/>
+        <activity android:name=".ui.StudyModeSettingsPage"/>
+        <activity android:name=".ui.StudyModePage"/>
+        <activity android:name=".ui.ReaderModeSettingsPage"/>
+        <activity android:name=".ui.ReaderModePage"/>
+        <activity android:name=".ui.AboutPage"/>
+        <activity android:name=".ui.HelpPage"/>
     </application>
 
 </manifest>
