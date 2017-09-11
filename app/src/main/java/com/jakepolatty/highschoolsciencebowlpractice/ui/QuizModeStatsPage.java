@@ -100,4 +100,9 @@ public class QuizModeStatsPage extends AppCompatActivity {
         Intent intent = new Intent(QuizModeStatsPage.this, HomePage.class);
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        // Prevents user from moving back to questions
+    }
 }
