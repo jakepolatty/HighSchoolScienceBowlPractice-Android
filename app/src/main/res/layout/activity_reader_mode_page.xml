@@ -159,7 +159,8 @@
                 android:layout_marginTop="-32dp"
                 android:layout_marginBottom="30dp"
                 android:textSize="16sp"
-                android:textColor="@color/timerLabelText"/>
+                android:textColor="@color/timerLabelText"
+                android:visibility="invisible"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
