@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.Spinner;
+import android.widget.ToggleButton;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
 import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionJSONParser;
@@ -25,6 +26,7 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
     // Time selectors
     private Spinner tossupTimeSpinner;
     private Spinner bonusTimeSpinner;
+    private ToggleButton roundTimerButton;
 
     private Button menuButton;
 
@@ -48,6 +50,8 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
         tossupTimeSpinner = (Spinner) findViewById(R.id.tossupTimeSelector);
         bonusTimeSpinner = (Spinner) findViewById(R.id.bonusTimeSelector);
 
+        roundTimerButton = (ToggleButton) findViewById(R.id.roundTimerButton);
+
         menuButton = (Button) findViewById(R.id.menuButton);
     }
 
@@ -60,6 +64,7 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
     public void startReaderMode(View view) {
         int setNum = setNumPicker.getValue() + 1;
         int roundNum = roundNumPicker.getValue() + 1;
+        boolean isTimedRound = roundTimerButton.isChecked();
         if ((roundNum == 16 || roundNum == 17) && (setNum == 5 || setNum == 6)) {
             final AlertDialog.Builder builder = new AlertDialog.Builder(ReaderModeSettingsPage.this, R.style.alertStyle);
             builder.setTitle("Invalid Set");
@@ -80,6 +85,8 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
             intent.putExtra("TOSSUP_TIME", tossupTime);
             int bonusTime = getBonusTimeSelected();
             intent.putExtra("BONUS_TIME", bonusTime);
+
+            intent.putExtra("TIMED_ROUND", isTimedRound);
 
             intent.putExtra("INDEX", 0);
 

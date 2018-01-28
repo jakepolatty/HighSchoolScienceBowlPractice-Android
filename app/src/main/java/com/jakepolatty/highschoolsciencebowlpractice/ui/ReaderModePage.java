@@ -37,6 +37,7 @@ public class ReaderModePage extends AppCompatActivity {
     private int questionIndex;
     private int tossupTime;
     private int bonusTime;
+    private boolean isTimedRound;
 
     private CountDownTimer timer;
 
@@ -51,6 +52,7 @@ public class ReaderModePage extends AppCompatActivity {
         tossupTime = intent.getIntExtra("TOSSUP_TIME", 5);
         bonusTime = intent.getIntExtra("BONUS_TIME", 20);
         questionIndex = intent.getIntExtra("INDEX", 0);
+        isTimedRound = intent.getBooleanExtra("TIMED_ROUND", false);
 
         Question question = QuestionJSONParser.getInstance().getCurrentReaderQuestion(questionIndex);
 
