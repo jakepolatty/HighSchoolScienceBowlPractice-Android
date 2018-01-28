@@ -7,15 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.jakepolatty.highschoolsciencebowlpractice.R;
 import com.jakepolatty.highschoolsciencebowlpractice.model.AnswerType;
 import com.jakepolatty.highschoolsciencebowlpractice.model.Question;
 import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionJSONParser;
 import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionType;
-
-import java.io.Reader;
 
 public class ReaderModePage extends AppCompatActivity {
     // Question text fields
@@ -33,13 +33,22 @@ public class ReaderModePage extends AppCompatActivity {
 
     private Button startTimerButton;
 
+    // Round questionTimer components
+    private LinearLayout timerBar;
+    private TextView roundTimeLabel;
+    private ToggleButton roundTimerStartToggle;
+
     // Intent fields
     private int questionIndex;
     private int tossupTime;
     private int bonusTime;
     private boolean isTimedRound;
+    private long roundTimeRemaining;
+    private int halfNum;
+    private boolean isTimerRunning;
 
-    private CountDownTimer timer;
+    private CountDownTimer questionTimer;
+    private CountDownTimer roundTimer;
 
 
     @Override
@@ -52,7 +61,13 @@ public class ReaderModePage extends AppCompatActivity {
         tossupTime = intent.getIntExtra("TOSSUP_TIME", 5);
         bonusTime = intent.getIntExtra("BONUS_TIME", 20);
         questionIndex = intent.getIntExtra("INDEX", 0);
+
         isTimedRound = intent.getBooleanExtra("TIMED_ROUND", false);
+        if (isTimedRound) {
+            roundTimeRemaining = intent.getLongExtra("TIME_REMAINING", 480000);
+            halfNum = intent.getIntExtra("HALF", 1);
+            isTimerRunning = intent.getBooleanExtra("TIMER_RUNNING", false);
+        }
 
         Question question = QuestionJSONParser.getInstance().getCurrentReaderQuestion(questionIndex);
 
@@ -109,7 +124,17 @@ public class ReaderModePage extends AppCompatActivity {
 
         startTimerButton = (Button) findViewById(R.id.startTimerButton);
 
-        timer = new CountDownTimer(seconds * 1000, 100) {
+        timerBar = (LinearLayout) findViewById(R.id.timerBar);
+        roundTimeLabel = (TextView) findViewById(R.id.roundTimeLabel);
+        roundTimerStartToggle = (ToggleButton) findViewById(R.id.roundTimerStartToggle);
+
+        if (!isTimedRound) {
+            timerBar.setVisibility(View.INVISIBLE);
+            timerBar.removeAllViews();
+            timerBar.setMinimumHeight(0);
+        }
+
+        questionTimer = new CountDownTimer(seconds * 1000, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerLabel.setText(Math.round(Math.ceil(millisUntilFinished/1000.0)) + " Seconds Left");
@@ -120,6 +145,36 @@ public class ReaderModePage extends AppCompatActivity {
                 timerLabel.setText("Time's Up");
             }
         };
+
+        if (isTimedRound) {
+            roundTimer = new CountDownTimer(roundTimeRemaining, 100) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                    roundTimeRemaining = millisUntilFinished;
+                    int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
+                    int seconds = (int) ((millisUntilFinished / 1000) % 60);
+                    if (halfNum == 1) {
+                        roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 1)");
+                    } else {
+                        roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 2)");
+                    }
+                }
+
+                @Override
+                public void onFinish() {
+                    if (halfNum == 1) {
+                        roundTimeLabel.setText("Halftime");
+                    } else {
+                        roundTimeLabel.setText("Round Over");
+                    }
+                }
+            };
+
+            if (isTimerRunning) {
+                roundTimerStartToggle.setChecked(true);
+                roundTimer.start();
+            }
+        }
     }
 
     @Override
@@ -131,18 +186,18 @@ public class ReaderModePage extends AppCompatActivity {
     public void startTimer(View view) {
         startTimerButton.setVisibility(View.INVISIBLE);
         timerLabel.setVisibility(View.VISIBLE);
-        timer.start();
+        questionTimer.start();
     }
 
     public void returnMainMenu(View view) {
-        timer.cancel();
+        questionTimer.cancel();
         menuButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(ReaderModePage.this, HomePage.class);
         startActivity(intent);
     }
 
     public void loadNextQuestion(View view) {
-        timer.cancel();
+        questionTimer.cancel();
         timerLabel.setVisibility(View.INVISIBLE);
         nextButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(ReaderModePage.this, ReaderModePage.class);
@@ -152,5 +207,14 @@ public class ReaderModePage extends AppCompatActivity {
         intent.putExtra("INDEX", questionIndex+1);
 
         startActivity(intent);
+    }
+
+    public void toggleRoundTimer(View view) {
+        if (roundTimerStartToggle.isChecked()) { // Running timer
+            roundTimer.start();
+            isTimerRunning = true;
+        } else { // Paused
+            roundTimer.cancel();
+        }
     }
 }

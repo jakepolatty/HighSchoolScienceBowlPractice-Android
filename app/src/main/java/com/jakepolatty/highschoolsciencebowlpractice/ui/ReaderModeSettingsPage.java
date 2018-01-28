@@ -87,6 +87,11 @@ public class ReaderModeSettingsPage extends AppCompatActivity {
             intent.putExtra("BONUS_TIME", bonusTime);
 
             intent.putExtra("TIMED_ROUND", isTimedRound);
+            if (isTimedRound) {
+                intent.putExtra("TIME_REMAINING", 480000);
+                intent.putExtra("HALF", 1);
+                intent.putExtra("TIMER_RUNNING", false);
+            }
 
             intent.putExtra("INDEX", 0);
 
