@@ -68,16 +68,68 @@
         android:drawableEnd="@drawable/ic_next"
         android:onClick="loadNextQuestion"/>
 
+    <LinearLayout
+        android:id="@+id/timerBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/appBarColor"
+        android:minHeight="44dp"
+        android:layout_below="@id/toolbar">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:minHeight="44dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/round_timer"
+                android:textSize="18sp"
+                android:textColor="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/roundTimeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:textSize="20sp"
+                android:textColor="@color/readerAnswerText"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/roundTimerStartToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/roundtimerbutton"
+            android:textOn="@string/pause"
+            android:textOff="@string/start_round"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:minHeight="35dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar">
+        android:layout_below="@id/timerBar">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal">
+
             <TextView
                 android:id="@+id/roundSetNumLabel"
                 android:layout_width="wrap_content"
