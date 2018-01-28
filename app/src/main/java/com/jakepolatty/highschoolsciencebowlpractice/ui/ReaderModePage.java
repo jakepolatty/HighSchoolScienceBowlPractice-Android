@@ -132,6 +132,17 @@ public class ReaderModePage extends AppCompatActivity {
             timerBar.setVisibility(View.INVISIBLE);
             timerBar.removeAllViews();
             timerBar.setMinimumHeight(0);
+        } else {
+            roundTimeLabel.setText(getRoundTimerString(roundTimeRemaining));
+
+            if (roundTimeRemaining < 1000){
+                roundTimeLabel.setText("Round Over");
+                roundTimerStartToggle.setVisibility(View.INVISIBLE);
+                roundTimerStartToggle.setChecked(false);
+            } else if (roundTimeRemaining < 480000) {
+                roundTimerStartToggle.setTextOff("Resume");
+                roundTimerStartToggle.setChecked(false);
+            }
         }
 
         questionTimer = new CountDownTimer(seconds * 1000, 100) {
@@ -161,13 +172,7 @@ public class ReaderModePage extends AppCompatActivity {
             @Override
             public void onTick(long millisUntilFinished) {
                 roundTimeRemaining = millisUntilFinished;
-                int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
-                int seconds = (int) ((millisUntilFinished / 1000) % 60);
-                if (halfNum == 1) {
-                    roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 1)");
-                } else {
-                    roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 2)");
-                }
+                roundTimeLabel.setText(getRoundTimerString(millisUntilFinished));
             }
 
             @Override
@@ -175,11 +180,33 @@ public class ReaderModePage extends AppCompatActivity {
                 isTimerRunning = false;
                 if (halfNum == 1) {
                     roundTimeLabel.setText("Halftime");
+                    roundTimerStartToggle.setTextOff("Start Half 2");
+                    roundTimerStartToggle.setChecked(false);
+                    isTimerRunning = false;
+                    roundTimeRemaining = 480000;
+                    halfNum = 2;
                 } else {
                     roundTimeLabel.setText("Round Over");
+                    roundTimerStartToggle.setVisibility(View.INVISIBLE);
+                    roundTimerStartToggle.setChecked(false);
+                    isTimerRunning = false;
                 }
             }
         };
+    }
+
+    private String getRoundTimerString(long millis) {
+        String timeString = "";
+
+        int minutes = (int) ((millis / (1000 * 60)) % 60);
+        int seconds = (int) ((millis / 1000) % 60);
+        if (halfNum == 1) {
+            timeString = (minutes + ":" + String.format("%02d", seconds) + " (Half 1)");
+        } else {
+            timeString = (minutes + ":" + String.format("%02d", seconds) + " (Half 2)");
+        }
+
+        return timeString;
     }
 
     @Override
@@ -211,17 +238,25 @@ public class ReaderModePage extends AppCompatActivity {
         intent.putExtra("BONUS_TIME", bonusTime);
         intent.putExtra("INDEX", questionIndex+1);
 
+        intent.putExtra("TIMED_ROUND", isTimedRound);
+        if (isTimedRound) {
+            intent.putExtra("TIME_REMAINING", roundTimeRemaining);
+            intent.putExtra("HALF", halfNum);
+            intent.putExtra("TIMER_RUNNING", isTimerRunning);
+        }
+
         startActivity(intent);
     }
 
     public void toggleRoundTimer(View view) {
         if (roundTimerStartToggle.isChecked()) { // Running timer
+            roundTimer = createRoundTimer();
             roundTimer.start();
             isTimerRunning = true;
         } else { // Paused
             roundTimer.cancel();
-            roundTimer = createRoundTimer();
             roundTimerStartToggle.setTextOff("Resume");
+            roundTimerStartToggle.setChecked(false);
             isTimerRunning = false;
         }
     }
