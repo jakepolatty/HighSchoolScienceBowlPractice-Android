@@ -147,34 +147,39 @@ public class ReaderModePage extends AppCompatActivity {
         };
 
         if (isTimedRound) {
-            roundTimer = new CountDownTimer(roundTimeRemaining, 100) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    roundTimeRemaining = millisUntilFinished;
-                    int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
-                    int seconds = (int) ((millisUntilFinished / 1000) % 60);
-                    if (halfNum == 1) {
-                        roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 1)");
-                    } else {
-                        roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 2)");
-                    }
-                }
-
-                @Override
-                public void onFinish() {
-                    if (halfNum == 1) {
-                        roundTimeLabel.setText("Halftime");
-                    } else {
-                        roundTimeLabel.setText("Round Over");
-                    }
-                }
-            };
+            roundTimer = createRoundTimer();
 
             if (isTimerRunning) {
                 roundTimerStartToggle.setChecked(true);
                 roundTimer.start();
             }
         }
+    }
+
+    private CountDownTimer createRoundTimer() {
+        return new CountDownTimer(roundTimeRemaining, 100) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                roundTimeRemaining = millisUntilFinished;
+                int minutes = (int) ((millisUntilFinished / (1000 * 60)) % 60);
+                int seconds = (int) ((millisUntilFinished / 1000) % 60);
+                if (halfNum == 1) {
+                    roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 1)");
+                } else {
+                    roundTimeLabel.setText(minutes + ":" + String.format("%2d", seconds) + " (Half 2)");
+                }
+            }
+
+            @Override
+            public void onFinish() {
+                isTimerRunning = false;
+                if (halfNum == 1) {
+                    roundTimeLabel.setText("Halftime");
+                } else {
+                    roundTimeLabel.setText("Round Over");
+                }
+            }
+        };
     }
 
     @Override
@@ -215,6 +220,9 @@ public class ReaderModePage extends AppCompatActivity {
             isTimerRunning = true;
         } else { // Paused
             roundTimer.cancel();
+            roundTimer = createRoundTimer();
+            roundTimerStartToggle.setTextOff("Resume");
+            isTimerRunning = false;
         }
     }
 }
