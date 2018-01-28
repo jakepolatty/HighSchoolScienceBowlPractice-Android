@@ -12,7 +12,7 @@
     <string name="physics">Physics</string>
     <string name="or_generate_random_questions">Or Generate Random Questions:</string>
     <string name="random">Random</string>
-    <string name="select_question_time_limits">Select Question Time Limits:</string>
+    <string name="select_question_time_limits">Select Round Time Limits:</string>
     <string name="tossup">Tossup:</string>
     <string name="bonus">Bonus:</string>
     <string name="start_set">Start Set</string>
@@ -37,4 +37,7 @@
     <string name="stats">Stats</string>
     <string name="quiz_results">Quiz Results</string>
     <string name="no_results_available">No Results Available</string>
+    <string name="_8_minute_halves">8 Minute Halves:</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
 </resources>
