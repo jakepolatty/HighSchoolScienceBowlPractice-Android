@@ -31,7 +31,7 @@
     <string name="accreditation_label">All practice questions used in the app are in the public domain and are taken from the Department of Energy\'s online database at science.energy.gov.</string>
     <string name="help_header">This page provides information about the app\'s different modes and settings.</string>
     <string name="quiz_mode_label">Quiz Mode: Multiple-choice only quiz mode that tests your knowledge against a clock and tracks statistics of your performance. You can select any category or pull questions from all categories (random option), and can also choose the time limits for tossup and bonus questions.</string>
-    <string name="reader_mode_label">Reader Mode: Designed for coaches and team leaders to use in meetings to run practice rounds. You can select any specific set from the online database by the set number and round, and can set custom time limits.</string>
+    <string name="reader_mode_label">Reader Mode: Designed for coaches and team leaders to use in meetings to run practice rounds. You can select any specific set from the online database by the set number and round, and can set custom time limits. Reader Mode also includes an 8-minute half timer so you can run full competition-style scrimmage rounds under time constraints.</string>
     <string name="study_mode_label">Study Mode: Casual mode used for studying questions without a time limit. You can select any category (or all categories) and any round difficulty level (or allow questions from all rounds).</string>
     <string name="app_logo">App Logo</string>
     <string name="stats">Stats</string>
