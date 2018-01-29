@@ -44,19 +44,10 @@ public class StudyModePage extends AppCompatActivity {
         category = intent.getStringExtra("CATEGORY");
         round = intent.getIntExtra("ROUND", 0);
 
-        if (category.equals("Random")) {
-            if (round == 0) {
-                question = QuestionJSONParser.getInstance().getRandomQuestion();
-            } else {
-                question = QuestionJSONParser.getInstance().getQuestionForRound(round);
-            }
-        } else {
-            Category parsedCategory = getCategoryForString(category);
-            if (round == 0) {
-                question = QuestionJSONParser.getInstance().getQuestionForCategory(parsedCategory);
-            } else {
-                question = QuestionJSONParser.getInstance().getQuestionForCategoryAndRound(parsedCategory, round);
-            }
+        getQuestionForParameters();
+        if (question == null) {
+            QuestionJSONParser.getInstance(getApplicationContext());
+            getQuestionForParameters();
         }
 
         roundSetNumLabel = (TextView) findViewById(R.id.roundSetNumLabel);
@@ -116,6 +107,23 @@ public class StudyModePage extends AppCompatActivity {
     public void showAnswer(View view) {
         showAnswerButton.setVisibility(View.INVISIBLE);
         answerLabel.setVisibility(View.VISIBLE);
+    }
+
+    private void getQuestionForParameters() {
+        if (category.equals("Random")) {
+            if (round == 0) {
+                question = QuestionJSONParser.getInstance().getRandomQuestion();
+            } else {
+                question = QuestionJSONParser.getInstance().getQuestionForRound(round);
+            }
+        } else {
+            Category parsedCategory = getCategoryForString(category);
+            if (round == 0) {
+                question = QuestionJSONParser.getInstance().getQuestionForCategory(parsedCategory);
+            } else {
+                question = QuestionJSONParser.getInstance().getQuestionForCategoryAndRound(parsedCategory, round);
+            }
+        }
     }
 
     private Category getCategoryForString(String s) {

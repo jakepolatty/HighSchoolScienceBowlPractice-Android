@@ -55,11 +55,11 @@ public class QuizModePage extends AppCompatActivity {
         tossupTime = intent.getIntExtra("TOSSUP_TIME", 10);
         bonusTime = intent.getIntExtra("BONUS_TIME", 10);
         stats = intent.getParcelableExtra("STATS");
-        if (category.equals("Random")) {
-            question = QuestionJSONParser.getInstance().getMCQuestion();
-        } else {
-            Category parsedCategory = getCategoryForString(category);
-            question = QuestionJSONParser.getInstance().getMCQuestionForCategory(parsedCategory);
+
+        getQuestionForParameters();
+        if (question == null) {
+            QuestionJSONParser.getInstance(getApplicationContext());
+            getQuestionForParameters();
         }
 
         int seconds;
@@ -214,6 +214,15 @@ public class QuizModePage extends AppCompatActivity {
         intent.putExtra("STATS", stats);
 
         startActivity(intent);
+    }
+
+    private void getQuestionForParameters() {
+        if (category.equals("Random")) {
+            question = QuestionJSONParser.getInstance().getMCQuestion();
+        } else {
+            Category parsedCategory = getCategoryForString(category);
+            question = QuestionJSONParser.getInstance().getMCQuestionForCategory(parsedCategory);
+        }
     }
 
     private Category getCategoryForString(String s) {
