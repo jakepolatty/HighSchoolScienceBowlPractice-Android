@@ -26,9 +26,9 @@
     <string name="about">About</string>
     <string name="help">Help</string>
     <string name="about_header">This page provides information about the app\'s creation and licensing.</string>
-    <string name="app_purpose_label">This app is designed to help students and teams prepare for the National Science Bowl competiton.</string>
+    <string name="app_purpose_label">This app is designed to help students and teams prepare for Science Bowl competitions. This app is not sponsored by the National Science Bowl®, U.S. Department of Energy or the U.S. Government.</string>
     <string name="creator_label">This app was created by Jake Polatty, co-captain of the Stanford University Online High School Science Bowl Team.</string>
-    <string name="accreditation_label">All practice questions used in the app are in the public domain and are taken from the Department of Energy\'s online database at science.energy.gov.</string>
+    <string name="accreditation_label">This app uses questions released by the National Science Bowl® that have been used at regional competitions in previous years. The questions taken from the National Science Bowl® website are the property of the Department of Energy and are available to the general public at no cost.</string>
     <string name="help_header">This page provides information about the app\'s different modes and settings.</string>
     <string name="quiz_mode_label">Quiz Mode: Multiple-choice only quiz mode that tests your knowledge against a clock and tracks statistics of your performance. You can select any category or pull questions from all categories (random option), and can also choose the time limits for tossup and bonus questions.</string>
     <string name="reader_mode_label">Reader Mode: Designed for coaches and team leaders to use in meetings to run practice rounds. You can select any specific set from the online database by the set number and round, and can set custom time limits. Reader Mode also includes an 8-minute half timer so you can run full competition-style scrimmage rounds under time constraints.</string>
