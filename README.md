@@ -2,7 +2,7 @@
 
 # Information
 
-This is an Android app designed to help students prepare for the National Science Bowl competition.
+This is an Android app designed to help students preparing for Science Bowl competitions.
 
 You can view the app on the Google Play Store [here](https://play.google.com/store/apps/details?id=com.jakepolatty.highschoolsciencebowlpractice).
 
