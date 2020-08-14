@@ -16,7 +16,7 @@ import com.jakepolatty.highschoolsciencebowlpractice.R;
 import com.jakepolatty.highschoolsciencebowlpractice.model.QuestionJSONParser;
 
 public class ReaderModeSettingsPage extends AppCompatActivity {
-    private static final String[] setOptions = {"Set 1", "Set 2", "Set 3", "Set 4", "Set 5", "Set 6", "Set 7", "Set 8", "Set 9"};
+    private static final String[] setOptions = {"Set 1", "Set 2", "Set 3", "Set 4", "Set 5", "Set 6", "Set 7", "Set 8", "Set 9", "Set 10", "Set 11"};
     private static final String[] roundOptions = {"Round 1", "Round 2", "Round 3", "Round 4", "Round 5", "Round 6", "Round 7", "Round 8", "Round 9", "Round 10", "Round 11", "Round 12", "Round 13", "Round 14", "Round 15", "Round 16", "Round 17"};
 
     // Set and round pickers
