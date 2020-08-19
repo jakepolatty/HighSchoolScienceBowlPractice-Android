@@ -19,6 +19,7 @@
     <string name="menu">Menu</string>
     <string name="finish_set">Finish Set</string>
     <string name="next">Next</string>
+    <string name="back">Back</string>
     <string name="and_select_a_round">And Select a Round:</string>
     <string name="show_answer">Show Answer</string>
     <string name="choose_a_question_set">Choose a Question Set:</string>

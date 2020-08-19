@@ -30,6 +30,7 @@ public class ReaderModePage extends AppCompatActivity {
     // Toolbar Buttons
     private Button menuButton;
     private Button nextButton;
+    private Button prevButton;
 
     private Button startTimerButton;
 
@@ -107,7 +108,11 @@ public class ReaderModePage extends AppCompatActivity {
         timerLabel = (TextView) findViewById(R.id.timerLabel);
         timerLabel.setText(seconds + " Seconds Left");
 
-        menuButton = (Button) findViewById(R.id.menuButton);
+        prevButton = (Button) findViewById(R.id.menuButton);
+        if (questionIndex == 0) {
+            prevButton.setEnabled(false);
+            prevButton.setVisibility(View.INVISIBLE);
+        }
 
         nextButton = (Button) findViewById(R.id.nextButton);
         if (questionIndex == QuestionJSONParser.getInstance().getCurrentReaderSetLength() - 1) {
@@ -213,6 +218,7 @@ public class ReaderModePage extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         nextButton.setTextColor(Color.parseColor("#ffffff"));
+        prevButton.setTextColor(Color.parseColor("#ffffff"));
     }
 
     public void startTimer(View view) {
@@ -225,6 +231,26 @@ public class ReaderModePage extends AppCompatActivity {
         questionTimer.cancel();
         menuButton.setTextColor(Color.parseColor("#94cffe"));
         Intent intent = new Intent(ReaderModePage.this, HomePage.class);
+        startActivity(intent);
+    }
+
+    public void loadPrevQuestion(View view) {
+        questionTimer.cancel();
+        timerLabel.setVisibility(View.INVISIBLE);
+        prevButton.setTextColor(Color.parseColor("#94cffe"));
+        Intent intent = new Intent(ReaderModePage.this, ReaderModePage.class);
+
+        intent.putExtra("TOSSUP_TIME", tossupTime);
+        intent.putExtra("BONUS_TIME", bonusTime);
+        intent.putExtra("INDEX", questionIndex-1);
+
+        intent.putExtra("TIMED_ROUND", isTimedRound);
+        if (isTimedRound) {
+            intent.putExtra("TIME_REMAINING", roundTimeRemaining);
+            intent.putExtra("HALF", halfNum);
+            intent.putExtra("TIMER_RUNNING", isTimerRunning);
+        }
+
         startActivity(intent);
     }
 
